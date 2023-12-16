@@ -50,5 +50,13 @@ namespace WhitespaceReader
 			var result = whitespaceNET.WhitespaceReader.IndentationOf($"    \t    Hello World", indentSize);
 			Assert.AreEqual(3, result);
 		}
+
+		[TestMethod]
+		public void Custom_indent_size()
+		{
+			var indentSize = 2;
+			var result = whitespaceNET.WhitespaceReader.IndentationOf($"      Hello World", indentSize);
+			Assert.AreEqual(3, result);
+		}
 	}
 }
