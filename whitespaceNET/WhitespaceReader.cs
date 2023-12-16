@@ -1,29 +1,74 @@
 ﻿using System;
+using System.Runtime;
 
 namespace whitespaceNET
 {
 	public static class WhitespaceReader
 	{
-		public static int defaultIndentSize = 4;
+		public static Settings defaultSettings = new Settings();
 
-		public static int IndentationOf(string text, int? indentSize = null)
+		public static int IndentationOf(string text, Settings settings = null)
 		{
-			if (!indentSize.HasValue)
-				indentSize = Math.Max(1, defaultIndentSize);
+			if (text.Length == 0 || (text[0] != ' ' && text[0] != '\t'))
+				return 0;
+
+			if (settings is null)
+				settings = defaultSettings;
 
 
+			// Spaces only
+			if (settings.input == ReaderInput.Spaces || settings.input == ReaderInput.MatchFirst && text[0] == ' ')
+			{
+				for (int i = 0; i < text.Length; i++)
+				{
+					if (text[i] != ' ')
+						return TransformSpacesResult(i, settings);
+				}
+				return TransformSpacesResult(text.Length, settings);
+			}
+
+			// Tabs only
+			if (settings.input == ReaderInput.Tabs || settings.input == ReaderInput.MatchFirst && text[0] == '\t')
+			{
+				for (int i = 0; i < text.Length; i++)
+				{
+					if (text[i] != '\t')
+						return TransformTabsResult(i, settings);
+				}
+				return TransformTabsResult(text.Length, settings);
+			}
+
+			// Spaces and tabs
 			var indent = 0;
+			var tabSize = Math.Max(1, settings.tabSizeInSpaces);
 			for (int i = 0; i < text.Length; i++)
 			{
 				switch (text[i])
 				{
-					case '\t': indent += indentSize.Value; break;
-					case ' ': indent++; break;
+					case '\t': indent += tabSize; break;
+					case ' ':  indent++;          break;
 					default:
-						return indent / indentSize.Value;
+						return TransformSpacesResult(indent, settings);
 				}
 			}
-			return indent / indentSize.Value;
+			return TransformSpacesResult(indent, settings);
+		}
+
+
+		static int TransformTabsResult(int tabs, Settings settings)
+		{
+			return settings.output == ReaderOutput.Spaces
+				? tabs * Math.Max(1, settings.tabSizeInSpaces)
+				: tabs
+				;
+		}
+
+		static int TransformSpacesResult(int spaces, Settings settings)
+		{
+			return settings.output == ReaderOutput.Tabs
+				? spaces / Math.Max(1, settings.tabSizeInSpaces)
+				: spaces
+				;
 		}
 	}
 }

@@ -6,19 +6,17 @@ namespace SignificantWhitespaceHierarchy
 	[TestClass]
 	public class FromString
 	{
-		const int indentation = 4;
-
 		[TestMethod]
 		public void Empty()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromString("", indentation);
+			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromString("");
 			Assert.AreEqual(0, result.Length);
 		}
 
 		[TestMethod]
 		public void Single_line()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromString("test", indentation);
+			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromString("test");
 			Assert.AreEqual(1, result.Length);
 			Assert.AreEqual(1, result[0].row);
 			Assert.AreEqual(0, result[0].indent);
@@ -32,7 +30,7 @@ namespace SignificantWhitespaceHierarchy
 				test
 				test 123
 				""A string test""
-				", indentation);
+				");
 
 			Assert.AreEqual(3, result.Length, $"Expected 3 rows");
 			AssertRowIsEqualTo(result[0], row: 2, indent: 4, "test");
@@ -57,7 +55,7 @@ namespace SignificantWhitespaceHierarchy
 						child6
 
 				""A string test""
-				", indentation);
+				");
 
 			Assert.AreEqual(3, result.Length, $"Expected 3 rows");
 			AssertRowIsEqualTo(result[0], row: 2, indent: 4, "test");

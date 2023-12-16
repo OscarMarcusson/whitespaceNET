@@ -8,27 +8,27 @@ namespace whitespaceNET
 {
 	public static class SignificantWhitespaceHierarchy
 	{
-		public static FileRow[] FromFile(string file, int? indentation = null)
+		public static FileRow[] FromFile(string file, Settings settings = null)
 		{
 			var text = System.IO.File.ReadAllText(file);
-			return FromInMemoryFile(text, text, indentation);
+			return FromInMemoryFile(text, text, settings);
 		}
 
 
-		public static FileRow[] FromInMemoryFile(string file, string text, int? indentation = null)
+		public static FileRow[] FromInMemoryFile(string file, string text, Settings settings = null)
 		{
-			return FromStringToCustomType(text, (r, i, t) => new FileRow(r, i, t, file), indentation);
+			return FromStringToCustomType(text, (r, i, t) => new FileRow(r, i, t, file), settings);
 		}
 
 
-		public static Row[] FromString(string text, int? indentation = null)
+		public static Row[] FromString(string text, Settings settings = null)
 		{
-			return FromStringToCustomType(text, (r, i, t) => new Row(r, i, t), indentation);
+			return FromStringToCustomType(text, (r, i, t) => new Row(r, i, t), settings);
 		}
 
 
 		public delegate T CreateRowOfType<T>(int rowNumber, int rowIndentation, string text);
-		public static T[] FromStringToCustomType<T>(string code, CreateRowOfType<T> instanceCreator, int? indentation = null) where T : Row
+		public static T[] FromStringToCustomType<T>(string code, CreateRowOfType<T> instanceCreator, Settings settings = null) where T : Row
 		{
 			var lines = code
 				.Replace("\r", "")
@@ -44,7 +44,7 @@ namespace whitespaceNET
 				if (lines[i].Length == 0)
 					continue;
 
-				var indent = WhitespaceReader.IndentationOf(lines[i], indentation);
+				var indent = WhitespaceReader.IndentationOf(lines[i], settings);
 				var row = instanceCreator(i + 1, indent, lines[i].Trim());
 				output.Add(row);
 			}

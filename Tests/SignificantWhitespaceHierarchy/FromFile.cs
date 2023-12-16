@@ -6,21 +6,20 @@ namespace SignificantWhitespaceHierarchy
 	[TestClass]
 	public class FromFile
 	{
-		const int indentation = 4;
 		const string fileName = "testfile.txt";
 		const string filePath = "some/dir/testfile.txt";
 
 		[TestMethod]
 		public void Empty()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "", indentation);
+			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "");
 			Assert.AreEqual(0, result.Length);
 		}
 
 		[TestMethod]
 		public void Single_line()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "test", indentation);
+			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "test");
 			Assert.AreEqual(1, result.Length);
 			Assert.AreEqual(1, result[0].row);
 			Assert.AreEqual(0, result[0].indent);
