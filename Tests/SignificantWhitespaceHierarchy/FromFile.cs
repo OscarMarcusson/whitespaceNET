@@ -12,14 +12,14 @@ namespace SignificantWhitespaceHierarchy
 		[TestMethod]
 		public void Empty()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "");
+			var result = Hierarchy.FromInMemoryFile(filePath, "");
 			Assert.AreEqual(0, result.Length);
 		}
 
 		[TestMethod]
 		public void Single_line()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, "test");
+			var result = Hierarchy.FromInMemoryFile(filePath, "test");
 			Assert.AreEqual(1, result.Length);
 			Assert.AreEqual(1, result[0].row);
 			Assert.AreEqual(0, result[0].indent);
@@ -29,7 +29,7 @@ namespace SignificantWhitespaceHierarchy
 		[TestMethod]
 		public void Flat()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, @"
+			var result = Hierarchy.FromInMemoryFile(filePath, @"
 				test
 				test 123
 				""A string test""
@@ -44,7 +44,7 @@ namespace SignificantWhitespaceHierarchy
 		[TestMethod]
 		public void Depth()
 		{
-			var result = whitespaceNET.SignificantWhitespaceHierarchy.FromInMemoryFile(filePath, @"
+			var result = Hierarchy.FromInMemoryFile(filePath, @"
 				test
 					test
 					123

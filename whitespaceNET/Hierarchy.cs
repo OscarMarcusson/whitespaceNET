@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static whitespaceNET.SignificantWhitespaceHierarchy;
+using static whitespaceNET.Hierarchy;
 
 namespace whitespaceNET
 {
-	public static class SignificantWhitespaceHierarchy
+	public static class Hierarchy
 	{
 		public static FileRow[] FromFile(string file, Settings settings = null)
 		{
