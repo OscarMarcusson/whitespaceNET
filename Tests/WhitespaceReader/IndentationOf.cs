@@ -23,7 +23,7 @@ namespace WhitespaceReader
 		public void Spaces()
 		{
 			var indentSize = 4;
-			for(int i = 1; i < 10; i++)
+			for (int i = 1; i < 10; i++)
 			{
 				var whitespace = new string(' ', i * indentSize);
 				var result = whitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World", indentSize);
