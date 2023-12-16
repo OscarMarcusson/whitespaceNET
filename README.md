@@ -1,6 +1,6 @@
-# whitespaceNET
+# WhitespaceNET
 
-This utility enables easy parsing of significant whitespace text, like python or yaml files. It is a useful base to use when creating a custom file format or programming language that utilises indentation for scope.
+This utility enables easy parsing of significant whitespace text, like python or yaml files. It is a useful base for creating custom file formats or programming languages that utilises indentation for scope.
 
 ## Full text scan
 
