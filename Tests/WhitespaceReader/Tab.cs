@@ -1,4 +1,4 @@
-using whitespaceNET;
+using WhitespaceNET;
 
 namespace WhitespaceReader
 {
@@ -10,7 +10,7 @@ namespace WhitespaceReader
 		[TestMethod]
 		public void Spaces()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("    Hello World", settings);
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("    Hello World", settings);
 			Assert.AreEqual(0, result);
 		}
 
@@ -20,7 +20,7 @@ namespace WhitespaceReader
 			for (int i = 1; i < 100; i++)
 			{
 				var whitespace = new string('\t', i);
-				var result = whitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World", settings);
+				var result = WhitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World", settings);
 				Assert.AreEqual(i, result);
 			}
 		}
@@ -28,7 +28,7 @@ namespace WhitespaceReader
 		[TestMethod]
 		public void Custom_indent_size()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("\t\t\tHello World", new Settings
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("\t\t\tHello World", new Settings
 			{
 				input = settings.input,
 				tabSizeInSpaces = 2

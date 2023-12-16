@@ -1,5 +1,5 @@
 using System.Diagnostics.Metrics;
-using whitespaceNET;
+using WhitespaceNET;
 
 namespace SignificantWhitespaceHierarchy
 {

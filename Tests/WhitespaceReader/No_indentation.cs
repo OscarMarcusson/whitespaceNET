@@ -1,4 +1,4 @@
-using whitespaceNET;
+using WhitespaceNET;
 
 namespace WhitespaceReader
 {
@@ -8,14 +8,14 @@ namespace WhitespaceReader
 		[TestMethod]
 		public void Empty()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("");
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("");
 			Assert.AreEqual(0, result);
 		}
 
 		[TestMethod]
 		public void None()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("Hello World");
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("Hello World");
 			Assert.AreEqual(0, result);
 		}
 	}

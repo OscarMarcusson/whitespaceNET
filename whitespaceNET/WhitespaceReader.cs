@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime;
 
-namespace whitespaceNET
+namespace WhitespaceNET
 {
 	public static class WhitespaceReader
 	{

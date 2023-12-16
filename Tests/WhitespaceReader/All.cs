@@ -1,4 +1,4 @@
-using whitespaceNET;
+using WhitespaceNET;
 
 namespace WhitespaceReader
 {
@@ -12,7 +12,7 @@ namespace WhitespaceReader
 			for (int i = 1; i < 100; i++)
 			{
 				var whitespace = new string(' ', i * indentSize);
-				var result = whitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World");
+				var result = WhitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World");
 				Assert.AreEqual(i, result);
 			}
 		}
@@ -23,7 +23,7 @@ namespace WhitespaceReader
 			for (int i = 1; i < 100; i++)
 			{
 				var whitespace = new string('\t', i);
-				var result = whitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World");
+				var result = WhitespaceNET.WhitespaceReader.IndentationOf($"{whitespace}Hello World");
 				Assert.AreEqual(i, result);
 			}
 		}
@@ -31,14 +31,14 @@ namespace WhitespaceReader
 		[TestMethod]
 		public void Mixed()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("    \t    Hello World");
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("    \t    Hello World");
 			Assert.AreEqual(3, result);
 		}
 
 		[TestMethod]
 		public void Custom_indent_size()
 		{
-			var result = whitespaceNET.WhitespaceReader.IndentationOf("      \tHello World", new Settings { tabSizeInSpaces = 2 });
+			var result = WhitespaceNET.WhitespaceReader.IndentationOf("      \tHello World", new Settings { tabSizeInSpaces = 2 });
 			Assert.AreEqual(4, result);
 		}
 	}

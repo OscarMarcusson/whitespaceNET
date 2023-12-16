@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\whitespaceNET\whitespaceNET.csproj" />
+    <ProjectReference Include="..\whitespaceNET\WhitespaceNET.csproj" />
   </ItemGroup>
 
 </Project>

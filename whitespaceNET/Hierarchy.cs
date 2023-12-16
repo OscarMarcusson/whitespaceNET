@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static whitespaceNET.Hierarchy;
+using static WhitespaceNET.Hierarchy;
 
-namespace whitespaceNET
+namespace WhitespaceNET
 {
 	public static class Hierarchy
 	{

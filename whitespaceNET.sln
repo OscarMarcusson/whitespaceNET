@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "whitespaceNET", "whitespaceNET\whitespaceNET.csproj", "{F8D30240-F91D-4329-8BC8-4959AC2F2FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhitespaceNET", "whitespaceNET\WhitespaceNET.csproj", "{F8D30240-F91D-4329-8BC8-4959AC2F2FA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{EF5E6A65-7B71-49AF-82A9-5FE051BE6F46}"
 EndProject
